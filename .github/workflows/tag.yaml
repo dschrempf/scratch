@@ -1,4 +1,4 @@
-name: "Create tag"
+name: "Update tag"
 
 on:
   workflow_dispatch:
@@ -11,13 +11,13 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Commit tag
+      - name: Update test tag
         uses: actions/github-script@v7
         with:
           script: |
-            github.rest.git.createRef({
+            github.rest.git.updateRef({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  ref: 'refs/tags/test',
+                  ref: 'tags/test',
                   sha: context.sha,
             })
