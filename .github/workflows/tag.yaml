@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Commit tag
         run: |
-          git tag --delete test || exit 0
-          git push --delete origin refs/tags/test || exit 0
+          git tag --delete test || true
+          git push --delete origin refs/tags/test || true
           git tag test main -m "Deployment status of TEST"
           git push origin refs/tags/test
