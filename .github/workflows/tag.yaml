@@ -5,6 +5,8 @@ on:
 
 jobs:
   tag:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
