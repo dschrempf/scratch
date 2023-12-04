@@ -7,9 +7,11 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     steps:
-    - name: Commit tag
-      run: |
-        git tag --delete test || exit 0
-        git push --delete origin refs/tags/test || exit 0
-        git tag test main -m "Deployment status of TEST"
-        git push origin refs/tags/test
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Commit tag
+        run: |
+          git tag --delete test || exit 0
+          git push --delete origin refs/tags/test || exit 0
+          git tag test main -m "Deployment status of TEST"
+          git push origin refs/tags/test
